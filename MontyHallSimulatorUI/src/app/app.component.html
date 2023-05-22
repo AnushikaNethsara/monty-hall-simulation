@@ -1,0 +1,43 @@
+<div class="dark-theme p-3">
+  <div class="container">
+    <h1 class="text-center mt-5 text-uppercase">
+      Monty Hall Problem Simulator
+    </h1>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card-custom card p-5 mt-5">
+          <div class="form-group">
+            <label class="form-check-label" for="simulationsInput">Number of Simulations:</label>
+            <input [(ngModel)]="numberOfSimulations" id="simulationsInput" type="number" class="form-control" />
+          </div>
+          <div class="form-group mt-4">
+            <label class="form-check-label" for="changeDoorCheckbox">Change Door:</label>
+            <input [(ngModel)]="changeDoor" id="changeDoorCheckbox" type="checkbox" class="form-check-input mx-2" />
+          </div>
+          <button (click)="runSimulations()" class="btn btn-primary mt-4">
+            Run Simulations
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card-custom card p-3 mt-5">
+          <div class="card-body text-center">
+            <h2 class="card-title">Simulation Results</h2>
+            <div *ngIf="isLoading" class="loading-container mt-3">
+              <div class="loading-spinner"></div>
+            </div>
+            <p *ngIf="!isLoading" class="card-text">
+              Number of Wins: {{ numberOfWins }}
+            </p>
+            <p *ngIf="!isLoading" class="card-text">
+              Number of Losses: {{ numberOfLosses }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
